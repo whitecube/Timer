@@ -29,9 +29,7 @@ export default class Timer {
             this.render()
         }, 1000)
 
-        for(let i = 0; i < this.scheduled.length; i++) {
-            this.scheduled[i].runner = setInterval(this.scheduled[i].callback, this.scheduled[i].interval)
-        }
+        this.startActions()
     }
 
     stop() {
@@ -51,6 +49,12 @@ export default class Timer {
     stopActions() {
         for(let i = 0; i < this.scheduled.length; i++) {
             clearInterval(this.scheduled[i].runner)
+        }
+    }
+
+    startActions() {
+        for(let i = 0; i < this.scheduled.length; i++) {
+            this.scheduled[i].runner = setInterval(this.scheduled[i].callback, this.scheduled[i].interval)
         }
     }
 
