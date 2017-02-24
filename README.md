@@ -19,6 +19,8 @@ where `$el` represents the DOM node you want to bind the timer to.
 
 <br>
 
+### Methods
+
 #### `timer.start()`
 Starts the timer.
 
@@ -45,3 +47,23 @@ timer.setElement($('.parent .timer'))
 // or
 timer.setElement(document.getElementById('timer'))
 ```
+
+<br>
+
+#### `timer.addZero(int)`
+Formats a number into a string. Used internally but you can use it if you need it.  
+Ex:
+```javascript
+timer.addZero(timer.seconds)
+// If timer.seconds is 9 (int), returns "09" (string)
+```
+
+<br>
+
+### Properties
+#### `timer.hours`
+The number of elapsed hours as an integer. Can be manually set.
+#### `timer.minutes`
+The number of elapsed minutes as an integer. Can be manually set.
+#### `timer.seconds`
+The number of elapsed seconds as an integer. Can be manually set.
