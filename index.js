@@ -5,6 +5,7 @@ export default class Timer {
         this.hours = 0;
         this.setElement($el)
         this.scheduled = []
+        this._format = 'HH:MM:SS'
     }
 
     setElement($el) {
@@ -65,14 +66,24 @@ export default class Timer {
         })
     }
 
+    format(format) {
+        this._format = format
+    }
+
     render() {
         if(this.hasNoNode()) return
-        let hours = this.addZero(this.hours)
-        let minutes = this.addZero(this.minutes)
-        let seconds = this.addZero(this.seconds)
-        let string = hours + ':' + minutes + ':' + seconds
+        this.$el.innerHTML = this.applyFormat()
+    }
 
-        this.$el.innerHTML = string
+    applyFormat() {
+        let string = this._format
+        string = string.replace('HH', this.addZero(this.hours))
+        string = string.replace('hh', this.hours)
+        string = string.replace('MM', this.addZero(this.minutes))
+        string = string.replace('mm', this.minutes)
+        string = string.replace('SS', this.addZero(this.seconds))
+        string = string.replace('ss', this.seconds)
+        return string
     }
 
     addZero(number) {
