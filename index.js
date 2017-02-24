@@ -43,6 +43,11 @@ export default class Timer {
         this.start()
     }
 
+    clearActions() {
+        this.stopActions()
+        this.scheduled = []
+    }
+
     stopActions() {
         for(let i = 0; i < this.scheduled.length; i++) {
             clearInterval(this.scheduled[i].runner)
