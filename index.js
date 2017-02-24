@@ -16,7 +16,7 @@ export default class Timer {
 
     start() {
         if(this.hasNoNode()) return
-        setInterval(() => {
+        this.runner = setInterval(() => {
             this.seconds++
             if(this.seconds >= 60) {
                 this.minutes++
@@ -29,8 +29,23 @@ export default class Timer {
             this.render()
         }, 1000)
 
-        for(var i = 0; i < this.scheduled.length; i++) {
-            setInterval(this.scheduled[i].callback, this.scheduled[i].interval)
+        for(let i = 0; i < this.scheduled.length; i++) {
+            this.scheduled[i].runner = setInterval(this.scheduled[i].callback, this.scheduled[i].interval)
+        }
+    }
+
+    stop() {
+        clearInterval(this.runner)
+        this.stopActions()
+    }
+
+    resume() {
+        this.start()
+    }
+
+    stopActions() {
+        for(let i = 0; i < this.scheduled.length; i++) {
+            clearInterval(this.scheduled[i].runner)
         }
     }
 
