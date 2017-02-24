@@ -3,8 +3,6 @@
 This utility displays a timer in the page and allows you to bind actions to your desired intervals.  
 An example use case for this would be a page that sends an ajax request every x seconds and gives an elapsed time as feedback to the user.
 
-![An example counter](./img/counter.png)
-
 ## Documentation
 
 #### To create a new timer, do
