@@ -1,0 +1,16 @@
+{
+  "name": "timer",
+  "version": "0.0.1",
+  "description": "A lightweight utility to display a timer in the page and perform actions at intervals.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "timer",
+    "intervals",
+    "whitecube"
+  ],
+  "author": "WhiteCube",
+  "license": "ISC"
+}
