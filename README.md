@@ -26,6 +26,27 @@ Starts the timer.
 
 <br>
 
+#### `timer.format(formatString)`
+Formats the timer. Pass it a string where:
+- 'HH' will be replaced by hours (with a zero in front if less than 10)
+- 'hh' will be replaced by hours
+- 'MM' will be replaced by minutes (with a zero in front if less than 10)
+- 'mm' will be replaced by minutes
+- 'SS' will be replaced by seconds (with a zero in front if less than 10)
+- 'ss' will be replaced by seconds
+
+Ex:  
+```javascript
+timer.format('HH:MM:SS')   // 00:12:36
+timer.format('hh MM SS')   // 0 12 36
+timer.format('HHhMMmSSs')  // 00h12m36s
+
+```
+The format is set to `'HH:MM:SS'` by default (as seen in the first example).
+
+<br>
+
+
 #### `timer.every(interval, callback)`
 Schedules an action that will execute at the specified interval.  
 Ex:
@@ -34,6 +55,26 @@ timer.every(5000, () => {
   console.log('hello!')
 })
 ```
+
+<br>
+
+#### `timer.stop()`
+Stops the timer and all the registered actions, but keeps everything in memory to allow resuming later.
+
+<br>
+
+#### `timer.resume()`
+Resumes the timer. Alias for `timer.start()`.
+
+<br>
+
+#### `timer.stopActions()`
+Stops all actions registered, but keeps them in memory to restart them later.
+
+<br>
+
+#### `timer.startActions()`
+Starts the registered actions (only useful if you have stopped them beforehand using `timer.stopActions()`).
 
 <br>
 
